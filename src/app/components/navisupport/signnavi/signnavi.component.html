@@ -1,0 +1,13 @@
+<li class="nav-item" style="display: flex; align-items: center;" style="position: relative;"  (mouseenter)="showSignButtons()" (mouseleave)="hideSignButtons()">
+    <a class="nav-link active" aria-current="page" href="#" style="display: flex;font-size: large;">
+      <fa-icon [icon]="faUser" style="margin-right: 5px;">
+      </fa-icon>
+      Sign
+    </a>
+    <div class="button-wrapper-sign"   *ngIf="showSignButton" (mouseenter)="showSignButtons()">
+
+      <button type="button" class="btn" style="color: white;font-size:medium;background-color: #F27A1A;">Sign In</button>
+      <button type="button" class="btn btn-light"  style="color: black;font-size:medium;">Sign Up</button>
+      
+    </div>
+  </li>

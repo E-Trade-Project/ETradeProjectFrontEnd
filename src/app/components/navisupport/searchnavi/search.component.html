@@ -1,0 +1,6 @@
+<div class="input-group" [class.focused]="isInputGroupFocused">
+    <input type="text" class="form-control search" (focus)="onInputFocus()" (blur)="onInputBlur()" placeholder="Write Anything">
+    <div class="input-group-append">
+      <button class="input-group-text" ><fa-icon [icon]="filmIcon"></fa-icon></button>
+    </div>
+  </div>

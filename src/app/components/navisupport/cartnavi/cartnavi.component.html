@@ -1,0 +1,60 @@
+
+<li class="nav-item"style="display: flex; align-items: center;margin-right: 5px;margin-left: 5px;position: relative;"  (mouseenter)="showCarts()" (mouseleave)="hideCarts()">
+    <a
+    class="nav-link active"
+    style="display: flex;font-size: large;align-items: center;"
+    href="#"
+  ><fa-icon [icon]="faCartShopping" style="margin-right: 5px;"></fa-icon>
+    Cart&nbsp;
+    <span class="badge rounded-pill" style="background-color:#F27A1A ;">0</span>
+  </a>
+    <div class="container cart"  *ngIf="showCart" (mouseenter)="showCarts()">
+      My Bag(1 product)
+      <div class="custom-line"></div>
+      <a href="">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="img-fluid" src="../../../assets/BMW_logo_(gray).png" alt="">
+          </div>
+          <div class="col-md-9">
+            <div class="" >
+              <div>
+               <b> Brand Name </b><small>Product Detailssssssssssssssss</small> 
+              </div> 
+              <span><small>Size:Medium Unit:1</small></span>
+              <div style="text-align: right;">
+                <b style="color: #F27A1A;">Unit Price</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </a>
+      <a href="">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="img-fluid" src="../../../assets/BMW_logo_(gray).png" alt="">
+          </div>
+          <div class="col-md-9">
+            <div class="" >
+              <div>
+               <b> Brand Name </b><small>Product Detailssssssssssssssss</small> 
+              </div> 
+              <span><small>Size:Medium Unit:1</small></span>
+              <div style="text-align: right;">
+                <b style="color: #F27A1A;">Unit Price</b>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <hr>
+      </a>
+      
+      <div class="col-md-12" style="display: flex;align-items: center;justify-content:space-around;">
+       
+        <button type="button" class="btn btn-light" style="color: black;">View Bag</button>
+        <button type="button" class="btn" style="background-color: #F27A1A;color: white;">Check Out</button>
+      </div>
+    </div>
+  </li>

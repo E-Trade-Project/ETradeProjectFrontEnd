@@ -1,0 +1,49 @@
+<li class="nav-item "style="display: flex; align-items: center;margin-right: 5px;margin-left: 5px;position: relative;"   (mouseenter)="showFavourites()" (mouseleave)="hideFavourites()">
+    <a class="nav-link active" href="#" style="font-size: large;display: flex;align-items: center;">
+      <fa-icon  [icon]="faHeart" style="margin-right: 5px;"></fa-icon>
+      Favorites&nbsp;
+      <span class="badge rounded-pill" style="background-color:#F27A1A ;">2</span>
+    </a>
+    <div class="container favourite"  *ngIf="showFavourite" (mouseenter)="showFavourites()">
+      My Favourites(1 product)
+      <div class="custom-line"></div>
+      <a href="">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="img-fluid" src="../../../assets/BMW_logo_(gray).png" alt="">
+          </div>
+          <div class="col-md-9">
+            <div class="" >
+              <div>
+               <b> Brand Name </b><small>Product Detailssssssssssssssss</small> 
+              </div> 
+              <span><small>Size:Medium Unit:1</small></span>
+              <div style="text-align: right;">
+                <b style="color: #F27A1A;">Unit Price</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </a>
+      <a href="">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="img-fluid" src="../../../assets/BMW_logo_(gray).png" alt="">
+          </div>
+          <div class="col-md-9">
+            <div class="" >
+              <div>
+               <b> Brand Name </b><small>Product Detailssssssssssssssss</small> 
+              </div> 
+              <span><small>Size:Medium Unit:1</small></span>
+              <div style="text-align: right;">
+                <b style="color: #F27A1A;">Unit Price</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </a>
+    </div>
+  </li>
