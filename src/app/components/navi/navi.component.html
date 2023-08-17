@@ -1,18 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style="display: flex;flex-direction: column;">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="display: flex;flex-direction: column;list-style: none;">
   <div class="container-fluid">
     <div class="d-flex align-items-center">
 
-      <a class="navbar-brand" href="#">
-
-        <img
-          src="../.././../assets/m5ADpuAdKTpadnUWmsCrHJ.jpg"
-          class="img-fluid"
-          style="max-width: 100px; height: auto"
-        />
-
-      </a>
+      
 
       <button
+       style="display: none;"
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -25,19 +18,36 @@
         <span class="navbar-toggler-icon"></span>
 
       </button>
+      <a class="navbar-brand" href="#">
 
+        <img
+          src="../.././../assets/m5ADpuAdKTpadnUWmsCrHJ.jpg"
+          class="img-fluid"
+          style="max-width: 100px; height: auto"
+        />
+
+      </a>  
+      
     </div>
-
+    <div style="display: flex;">
+      <app-signnavi class="mobile"></app-signnavi>
+    <app-favoritesnavi class="mobile"></app-favoritesnavi>
+    <app-cartnavi class="mobile"></app-cartnavi>
+    </div>
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <div class="d-flex" style="width: 10%"></div>
+      <div class="d-flex" style="width: 10%; @media (max-width: 768px) {
+        width: 0%;
+      }"></div>
 
-      <app-search style="width: 100%;"></app-search>
+      <app-search class="comp " style="width: 100%;"></app-search>
 
-      <div style="padding-right: 3%;"></div>
+
+      <div style="padding-right: 5%;"></div>
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="align-items: center;">
-
+       
         <app-signnavi></app-signnavi>
         <app-favoritesnavi></app-favoritesnavi>
         <app-cartnavi></app-cartnavi>
@@ -47,7 +57,7 @@
     </div>
 
   </div>
-
+  <app-search class=" mobile" style="width: 100%;"></app-search>
   <app-categoriesnavi style="width: 100%;"></app-categoriesnavi>
 
 </nav>

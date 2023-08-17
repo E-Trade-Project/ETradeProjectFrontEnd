@@ -24,4 +24,20 @@
     transform: translateX(-50%);
     text-align: center;
     padding: 20%;
+    z-index: 2;
+  }
+  fa-icon{
+    font-size: 25px;
+  }
+  .textfavorites{
+    display: block;
+  }@media (max-width:768px){
+    .textfavorites{
+      display: none;
+    }
+    .nav-item .favourite{
+      display: none;
+      padding: 0%;
+      z-index: 2;
+    }
   }

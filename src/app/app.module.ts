@@ -16,6 +16,7 @@ import { SignnaviComponent } from './components/navisupport/signnavi/signnavi.co
 import { FavoritesnaviComponent } from './components/navisupport/favoritesnavi/favoritesnavi.component';
 import { CartnaviComponent } from './components/navisupport/cartnavi/cartnavi.component';
 import { CategoriesnaviComponent } from './components/navisupport/categoriesnavi/categoriesnavi.component';
+import { MainpageproductsComponent } from './components/mainpageproducts/mainpageproducts.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { CategoriesnaviComponent } from './components/navisupport/categoriesnavi
     FavoritesnaviComponent,
     CartnaviComponent,
     CategoriesnaviComponent,
+    MainpageproductsComponent,
   ],
   imports: [
     BrowserModule,

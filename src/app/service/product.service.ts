@@ -13,7 +13,11 @@ export class ProductService {
   constructor(private httpClient:HttpClient) { }
   
   getProducts():Observable<ListResponseModel<Product>>{
-    let newPath = this.apiUrl + "getall";
+    let newPath = this.apiUrl + "getallwithdetails";
+    return this.httpClient.get<ListResponseModel<Product>>(newPath);
+  }
+  getProductsForShowCase():Observable<ListResponseModel<Product>>{
+    let newPath = this.apiUrl + "showcaseproducts";
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
   }
 }

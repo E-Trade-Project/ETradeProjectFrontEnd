@@ -4,9 +4,9 @@
     class="nav-link active"
     style="display: flex;font-size: large;align-items: center;"
     href="#"
-  ><fa-icon [icon]="faCartShopping" style="margin-right: 5px;"></fa-icon>
-    Cart&nbsp;
-    <span class="badge rounded-pill" style="background-color:#F27A1A ;">0</span>
+  > <fa-icon [icon]="faCartShopping" style="margin-right: 5px; position: relative;"></fa-icon>
+   <span class="badge rounded-pill" style="font-size: 10px;background-color: #F27A1A; position: absolute; bottom:60%; right: 45%;">0</span>
+    <span class="textcart">Cart</span>&nbsp;
   </a>
     <div class="container cart"  *ngIf="showCart" (mouseenter)="showCarts()">
       My Bag(1 product)

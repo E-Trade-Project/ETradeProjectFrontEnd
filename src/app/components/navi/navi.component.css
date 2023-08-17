@@ -15,7 +15,27 @@ a {
 .custom-line {
   height: 10px;
   background-color: black;
+}@media (max-width: 768px) {
+  .search-mobile-hidden {
+    display: none; 
+  }
+  .mobile{
+    display: block;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }.comp{
+    display: none;
+  }
 }
+@media (min-width:768px) {
+  .mobile{
+    
+    display: none;
+  }.comp{
+    display: block;
+  }
+}
+
 
 
 
