@@ -29,7 +29,6 @@ a {
 }
 @media (min-width:768px) {
   .mobile{
-    
     display: none;
   }.comp{
     display: block;

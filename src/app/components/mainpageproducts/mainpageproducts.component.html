@@ -1,8 +1,18 @@
 <div class="row">
-    <div class="container text-center" ><h1>ShowCase</h1></div>
+    <div class="container text-center" style="margin-top: 20px;"><h1>ShowCase</h1></div>
+    <div *ngIf = "loading==true" class="text-center s" style="align-items: center;@media (max-width: 768px) {
+        margin-top: 50px;
+    }">
+        
+        <div *ngIf = "loading==true" class="spinner-grow text-warning" role="status">
+            <span class="sr-only">Loading</span>
+         </div>
+         <span style="color: #F27A1A; font-style: italic;"> Loading ...</span>
+    </div>
+    
     <div class="container" style="display: flex !important; flex-wrap: wrap; flex-direction: row !important;">
         <!-- src="../../../assets/BMW_logo_(gray).png" -->
-        <ul class="products" style="width: 100%;" >
+        <ul class="products" >
             <li class="product-wrapper"  *ngFor="let product of Products">
                 <div class="image-product" >
                     <img class="img-fluid" [src]="getImageSource(product)" alt="{{product.productName}}">
@@ -13,6 +23,11 @@
                 <div class="product-texts">
                     <div class="product-name"> {{product.productName}}</div>
                     <div class="product-head">{{product.header}}</div> 
+                </div>
+                <div class="add-cart">
+                    <div class="unitPrice">
+                      <b>  {{product.unitPrice}} TL</b>
+                    </div>
                 </div>
             </li>
         </ul>
