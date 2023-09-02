@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component,OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -18,8 +19,14 @@ export class MainpageproductsComponent implements OnInit {
   getProductsForShowCase(){
     this.loading = true;
     this.productService.getProductsForShowCase().subscribe(response=>{
+
       this.Products = response.data;
       this.loading = false;
+
+      this.Products.forEach((product:Product) => {
+        product.categoryName = product.categoryName.replace(/\s+/g, ''); 
+      });
+
       this.Products[0].unitsInStock=0?this.soldControl=true:this.soldControl=false;
     });
   }

@@ -1,0 +1,165 @@
+div{
+    cursor: default;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.operator{
+    color: #F27A1A;
+}
+.product-detail-breadcrumb-item{
+    font-family: source_sans_proregular;
+    white-space: nowrap;
+    font-size: 15px;
+    line-height: 18px;
+    color: #333;
+    
+}
+.gallery-container{
+    width: 400px;
+    
+    position: relative;
+}
+.product-image-container{
+    width: 100%;
+    height: 600px;
+    position: relative;
+}.gallery-icon-container.left {
+    left: 16px;
+}
+ .gallery-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    box-shadow: 0 4px 4px #33333329;
+    border-radius: 100px;
+    z-index: 10;
+}.left{
+    float: left;
+}.right{
+    right: 16px;
+    float: right;
+}
+.base-product-image:hover{
+    cursor: crosshair;
+}.product-slide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px auto 0;
+    max-width: 352px;
+    height: 60px;
+    position: relative;}
+.styles-module_slider__o0fqa {
+        display: flex;
+        overflow-x: auto;
+    }
+.product-slide:not(:last-child) {
+        margin-right: 12px;
+    }
+    .product-slide {
+        box-sizing: border-box;
+        min-width: 40px;
+        width: 40px;
+        height: 60px;
+        border-radius: 6px;
+        border: solid 1px #e6e6e6;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+    }
+    .product-slide img {
+        width: auto;
+        height: 100%;
+    }
+    .styles-module_slider__o0fqa > * {
+        flex: 0 0 auto;
+    }.ngxImageZoomContainer{
+        width: 400px !important;
+        height: 650px !important;
+    }::ng-deep .ngxImageZoomContainer > img{
+        width: 400px !important;
+        height: 600px !important;
+        object-fit: cover;
+        z-index: 100;
+    }
+    ::ng-deep .image-container> .ngxImageZoomContainer > img{
+        width: 400px !important;
+        height: 600px !important;
+        object-fit: cover;
+        cursor:text !important;
+        z-index: 100;
+    }
+    ::ng-deep .ngxImageZoomContainer > img:hover{
+        cursor:crosshair !important;
+    }
+    .gallery-modal {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        position: fixed;
+        background-color: #6666;
+        display: none;
+        margin: auto;
+        z-index: 9999;
+        transition: all .3s ease-in-out;
+    }.gallery-modal-content {
+      background: #fff;
+      margin: 3% auto;
+      max-width: 550px;
+      max-height: 825px;
+      width: 550px;
+      height: 825px;
+      height: auto;
+      position: relative;
+      border-radius: 6px;
+       overflow: hidden;
+       display: flex;}
+       .i-close {
+        color: #aaa;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: red;
+        
+    }.gallery-modal-content img {
+        object-fit: cover;
+        width: 100%;
+        height: 825px;
+        max-height: 100%;
+        border-radius: 6px;
+    }
+    .gallery-modal-content img :hover{
+        cursor:default;
+    }.gallery-modal-icon.right {
+        right: 20px;
+    }.gallery-modal-icon {
+        color: #fff;
+        font-size: 37px;
+        position: absolute;
+        display: block;
+        text-shadow: 0 0 3px #e6e6e6, 0 0 2px #000000;
+        top: calc(50% - 17.75px);
+        z-index: 10;
+        cursor: pointer;
+        transition: opacity .6s;
+    }.right {
+        float: right;
+    }.left {
+        float: left;
+    }.gallery-modal-icon.left {
+        left: 20px;
+    }.ss{
+        color: blue;
+    }

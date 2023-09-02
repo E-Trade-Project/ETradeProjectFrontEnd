@@ -13,12 +13,12 @@
     <div class="container" style="display: flex !important; flex-wrap: wrap; flex-direction: row !important;">
         <!-- src="../../../assets/BMW_logo_(gray).png" -->
         <ul class="products" >
-            <li class="product-wrapper"  *ngFor="let product of Products">
+            <li class="product-wrapper"  [routerLink]="['/products',product.categoryName,'product-id',product.productId]" *ngFor="let product of Products">
                 <div class="image-product" >
                     <img class="img-fluid" [src]="getImageSource(product)" alt="{{product.productName}}">
                     <span class="heart-symbol">❤️</span>
                     <span class="sold-out"  *ngIf="soldControl" >Sold Out</span>
-                    <div class="discount-badge">-20% Discount</div>
+                    <div class="discount-badge">-20% Discount</div> 
                 </div>
                 <div class="product-texts">
                     <div class="product-name"> {{product.productName}}</div>

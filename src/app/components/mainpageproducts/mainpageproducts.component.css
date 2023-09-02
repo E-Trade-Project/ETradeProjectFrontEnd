@@ -25,7 +25,8 @@ img{
         padding-top: 10px;
         padding-bottom: 10px;
         border-radius: 8px;
-        background-color: red;
+        background-color: gray;
+
     }
     .product-wrapper:hover{
         box-shadow: 5px 5px 10px 0px #000;
@@ -134,7 +135,7 @@ img{
         padding-top: 5px;
         padding-bottom: 5px;
         border-radius: 8px;
-        background-color: red;
+        background-color: gray;
     }
     .unitPrice{
         width: 100%;

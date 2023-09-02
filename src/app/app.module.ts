@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
 import{BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,8 +16,8 @@ import { FavoritesnaviComponent } from './components/navisupport/favoritesnavi/f
 import { CartnaviComponent } from './components/navisupport/cartnavi/cartnavi.component';
 import { CategoriesnaviComponent } from './components/navisupport/categoriesnavi/categoriesnavi.component';
 import { MainpageproductsComponent } from './components/mainpageproducts/mainpageproducts.component';
-
-
+import { ProductdetailComponent } from './components/productdetail/productdetail.component';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +30,7 @@ import { MainpageproductsComponent } from './components/mainpageproducts/mainpag
     CartnaviComponent,
     CategoriesnaviComponent,
     MainpageproductsComponent,
+    ProductdetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +38,7 @@ import { MainpageproductsComponent } from './components/mainpageproducts/mainpag
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxImageZoomModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })

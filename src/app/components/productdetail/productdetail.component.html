@@ -1,0 +1,55 @@
+<div class="container" style="padding-top: 1%;">
+    <div class="row">
+        <div class="col-md-5">
+           <a href="" class="product-detail-breadcrumb-item" [routerLink]="'/products'">MainPage</a>  
+           <span class="operator">&nbsp;> &nbsp;</span>
+           <a href="" class="product-detail-breadcrumb-item" [routerLink]="['/products',product.categoryName]">{{product.categoryName}} </a>
+           
+           <span class="operator">&nbsp;>&nbsp;</span> 
+           <b class="product-detail-breadcrumb-item">{{product.productName}}</b> 
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="gallery-container">
+      <div class="product-image-container">
+        <span class="gallery-icon-container left" (click)="showPreviousImage()"><</span>
+        <span class="gallery-icon-container right" (click)="showNextImage()">></span>
+        <div class="base-product-image">  
+          <div class="image-container" (click)="onOpenGalleryModal()" style="position: relative;overflow: hidden;">
+            
+            <lib-ngx-image-zoom class="" style="width: 600px;;height: 400px;object-fit: cover;"
+              [thumbImage]=mainImageSource
+              [fullImage]=mainImageSource
+              [magnification]="2"
+              [enableScrollZoom]="true"
+              [enableLens]="true"
+              [lensWidth]="300"
+              [lensHeight]="350"
+            ></lib-ngx-image-zoom>
+          </div>
+          <div class="styles-module_sliderBase__swkx1 product-slide-container" >
+            <div class="styles-module_slider__o0fqa" *ngFor="let product of Products">
+              <div class="product-slide">
+                <img (mouseenter)="changeImage(product)" [src]="getImageSource(product)" loading="lazy"></div>
+              </div>
+          </div>
+          <div class="gallery-modal" id="galleryModal">
+            <div class="gallery-modal-content">
+              <i  class="i-close" id="image" (click)="onCloseImageClick()">X</i>
+              <img [src]="mainImageSource" alt="">
+              <i class="gallery-modal-icon i-arrow-right right"  (click)="showNextImage()">></i>
+              <i class="gallery-modal-icon i-arrow-right left" (click)="showPreviousImage()"><</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   
+     
