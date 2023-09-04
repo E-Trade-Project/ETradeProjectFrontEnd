@@ -1,28 +1,47 @@
-<div class="container" style="padding-top: 1%;">
-    <div class="row">
-        <div class="col-md-5">
-           <a href="" class="product-detail-breadcrumb-item" [routerLink]="'/products'">MainPage</a>  
-           <span class="operator">&nbsp;> &nbsp;</span>
-           <a href="" class="product-detail-breadcrumb-item" [routerLink]="['/products',product.categoryName]">{{product.categoryName}} </a>
-           
-           <span class="operator">&nbsp;>&nbsp;</span> 
-           <b class="product-detail-breadcrumb-item">{{product.productName}}</b> 
-        </div>
+<div class="container" style="padding-top: 1%">
+  <div class="row">
+    <div class="col-md-5">
+      <a
+        href=""
+        class="product-detail-breadcrumb-item"
+        [routerLink]="'/products'"
+        >MainPage</a
+      >
+      <span class="operator">&nbsp;> &nbsp;</span>
+      <a
+        href=""
+        class="product-detail-breadcrumb-item"
+        [routerLink]="['/products', product.categoryName]"
+        >{{ product.categoryName }}
+      </a>
+
+      <span class="operator">&nbsp;>&nbsp;</span>
+      <b class="product-detail-breadcrumb-item">{{ product.productName }}</b>
     </div>
+  </div>
 </div>
 
-<div class="container">
-  <div class="row">
+<div class="container" id="container">
+  <div class="flex-container">
     <div class="gallery-container">
       <div class="product-image-container">
-        <span class="gallery-icon-container left" (click)="showPreviousImage()"><</span>
-        <span class="gallery-icon-container right" (click)="showNextImage()">></span>
-        <div class="base-product-image">  
-          <div class="image-container" (click)="onOpenGalleryModal()" style="position: relative;overflow: hidden;">
-            
-            <lib-ngx-image-zoom class="" style="width: 600px;;height: 400px;object-fit: cover;"
-              [thumbImage]=mainImageSource
-              [fullImage]=mainImageSource
+        <span class="gallery-icon-container left" (click)="showPreviousImage()"
+          ><</span
+        >
+        <span class="gallery-icon-container right" (click)="showNextImage()"
+          >></span
+        >
+        <div class="base-product-image">
+          <div
+            class="image-container"
+            (click)="onOpenGalleryModal()"
+            style="position: relative; overflow: hidden"
+          >
+            <lib-ngx-image-zoom
+              class=""
+              style="width: 600px; height: 400px; object-fit: cover"
+              [thumbImage]="mainImageSource"
+              [fullImage]="mainImageSource"
               [magnification]="2"
               [enableScrollZoom]="true"
               [enableLens]="true"
@@ -30,18 +49,406 @@
               [lensHeight]="350"
             ></lib-ngx-image-zoom>
           </div>
-          <div class="styles-module_sliderBase__swkx1 product-slide-container" >
-            <div class="styles-module_slider__o0fqa" *ngFor="let product of Products">
+          <div class="styles-module_sliderBase__swkx1 product-slide-container">
+            <div
+              class="styles-module_slider__o0fqa"
+              *ngFor="let product of Products"
+            >
               <div class="product-slide">
-                <img (mouseenter)="changeImage(product)" [src]="getImageSource(product)" loading="lazy"></div>
+                <img
+                  (mouseenter)="changeImage(product)"
+                  [src]="getImageSource(product)"
+                  loading="lazy"
+                />
               </div>
+            </div>
           </div>
           <div class="gallery-modal" id="galleryModal">
             <div class="gallery-modal-content">
-              <i  class="i-close" id="image" (click)="onCloseImageClick()">X</i>
-              <img [src]="mainImageSource" alt="">
-              <i class="gallery-modal-icon i-arrow-right right"  (click)="showNextImage()">></i>
-              <i class="gallery-modal-icon i-arrow-right left" (click)="showPreviousImage()"><</i>
+              <i class="i-close" id="image" (click)="onCloseImageClick()">X</i>
+              <img [src]="mainImageSource" class="" alt="" />
+              <i
+                class="gallery-modal-icon i-arrow-right right"
+                (click)="showNextImage()"
+                >></i
+              >
+              <i
+                class="gallery-modal-icon i-arrow-right left"
+                (click)="showPreviousImage()"
+                ><</i
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="container-right-content">
+        <div class="product-detail-wrapper">
+          <div class="pr-in-w">
+            <div>
+              <div class="pr-in-cn">
+                <div>
+                  <h1 class="pr-new-br" data-drroot="h1">
+                    <span class="product-brand-name-without-link"
+                      >SB COLLECTIONN</span
+                    ><span>
+                      Kadın Siyah Sırt Dekolte Yırtmaçlı Elbise SB0022
+                    </span>
+                  </h1>
+                </div>
+                <div class="pr-in-ratings">
+                  <div class="pr-in-rnr">
+                    <div class="review-tooltip">
+                      <div class="tooltip-indicator">
+                        <div class="rating-line-wrapper">
+                          <div class="rt-st-avg">
+                            <div class="rating-line-count">4.1</div>
+                            <div class="ratings readonly">
+                              <div class="star-w">
+                                <div class="empty">
+                                  <div class="star"></div>
+                                </div>
+                                <div
+                                  class="full"
+                                  style="width: 100%; max-width: 100%"
+                                >
+                                  <div class="star"></div>
+                                </div>
+                              </div>
+                              <div class="star-w">
+                                <div class="empty">
+                                  <div class="star"></div>
+                                </div>
+                                <div
+                                  class="full"
+                                  style="width: 100%; max-width: 100%"
+                                >
+                                  <div class="star"></div>
+                                </div>
+                              </div>
+                              <div class="star-w">
+                                <div class="empty">
+                                  <div class="star"></div>
+                                </div>
+                                <div
+                                  class="full"
+                                  style="width: 100%; max-width: 100%"
+                                >
+                                  <div class="star"></div>
+                                </div>
+                              </div>
+                              <div class="star-w">
+                                <div class="empty">
+                                  <div class="star"></div>
+                                </div>
+                                <div
+                                  class="full"
+                                  style="width: 100%; max-width: 100%"
+                                >
+                                  <div class="star"></div>
+                                </div>
+                              </div>
+                              <div class="star-w">
+                                <div class="empty">
+                                  <div class="star"></div>
+                                </div>
+                                <div
+                                  class="full"
+                                  style="width: 7%; max-width: 100%"
+                                >
+                                  <div class="star"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="seperator"></div>
+                    <div class="rvw-cnt">
+                      <a
+                        href="/sb-collectionn/kadin-siyah-sirt-dekolte-yirtmacli-elbise-p-302734251/yorumlar?boutiqueId=61&amp;merchantId=569282&amp;v=s"
+                        class="rvw-cnt-tx"
+                        ><span class="total-review-count">2935</span>
+                        Değerlendirme</a
+                      ><img
+                        class="camera-icon"
+                        src="https://cdn.dsmcdn.com/mobile/reviewrating/kamera-emoji6x.png"
+                      />
+                    </div>
+                    <div class="seperator"></div>
+                    <a
+                      class="product-questions"
+                      href="/sb-collectionn/kadin-siyah-sirt-dekolte-yirtmacli-elbise-p-302734251/saticiya-sor?merchantId=569282"
+                      ><span class="answered-questions-count">962</span> Soru
+                      &amp; Cevap</a
+                    >
+                    <div class="seperator"></div>
+                    <div class="product-favorite-container">
+                      <i class="i-heart"></i>
+                      <div class="product-favorite-info">
+                        <span class="favorite-count">209101</span> Favori
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-price-container">
+                  <div class="pr-bx-w">
+                    <div class="pr-bx-nm with-org-prc">
+                      <span class="prc-dsc">145 TL</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-info-badges"></div>
+              </div>
+            </div>
+          </div>
+          <div class="size-variant-wrapper" data-drroot="size-variant">
+            <div class="size-variant-title-wrapper">
+              <span class="size-variant-title"
+                ><span class="size-variant-title--bold">Beden</span>:
+                <span class="size-variant-attr-value">S</span></span
+              >
+            </div>
+            <div class="variants">
+              <div class="attributeSlider">
+                <div
+                  class="styles-module_sliderBase__swkx1 attributeSlider-carousel"
+                  data-testid="carousel"
+                >
+                  <div class="styles-module_slider__o0fqa">
+                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
+                      XS
+                    </div>
+                    <div
+                      class="selected sp-itm"
+                      title="Beden seçmek için tıklayınız"
+                    >
+                      S
+                    </div>
+                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
+                      M
+                    </div>
+                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
+                      L
+                    </div>
+                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
+                      XL
+                    </div>
+                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
+                      XXL
+                    </div>
+                  </div>
+                </div>
+                <div class="attributeSlider-fog"></div>
+              </div>
+            </div>
+          </div>
+          <div class="product-button-container">
+            <button component-id="1" class="add-to-basket">
+              <div class="add-to-basket-button-text">Sepete Ekle</div>
+              <div class="add-to-basket-button-text-success">
+                Sepete Eklendi
+              </div>
+              <div class="add-to-bs-ldr"></div>
+            </button>
+            <div class="favorite-button">
+              <div class="review-tooltip">
+                <div class="tooltip-indicator">
+                  <button class="fv"><i class="i-heart"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="delivery-favorite-info">
+            <div class="delivery-and-favorite-wrapper">
+              <div class="pr-dd product-delivery-badge">
+                <div class="pr-dd-rs-w">
+                  <div class="same-day-shipping badge">
+                    <div class="i-fast-delivery-filled"></div>
+                    <div>
+                      <strong>19 saat 7 dakika</strong> içinde sipariş verirsen
+                      <strong>en geç yarın</strong> kargoda!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <div component-id="3" class="collectable-coupons-wrapper">
+            <div class="collectable-coupons-header">
+              <span class="collectable-coupons-title">Kuponlar</span>
+            </div>
+            <div class="collectable-coupons-content">
+              <div class="attributeSlider">
+                <div
+                  class="styles-module_sliderBase__swkx1 attributeSlider-carousel"
+                  data-testid="carousel"
+                >
+                  <div class="styles-module_slider__o0fqa">
+                    <div class="coupon-item-wrapper">
+                      <div class="coupon-item-content">
+                        <div class="coupon-item-container">
+                          <div class="coupon-item-first-line">
+                            <div class="coupon-price-container-upper">
+                              <span class="coupon-running-out"
+                                ><i class="i-running-out"></i>Tükeniyor!</span
+                              >
+                            </div>
+                            <div class="coupon-price-container-bottom">
+                              <div class="coupon">
+                                <p class="coupon-discount">10 TL</p>
+                              </div>
+                              <div class="coupon-collect-button">
+                                <span class="coupon-collect-button-text"
+                                  >Kazan</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <hr class="horizontal-line" />
+                          <div class="coupon-item-right-side">
+                            <div class="coupon-item-upper">
+                              <div class="coupon-price-content">
+                                <p class="coupon-lower-limit">
+                                  <span class="ellipse"></span>Alt Limit
+                                  <span>225 TL</span>
+                                </p>
+                              </div>
+                              <div class="coupon-remaining-container">
+                                <span class="ellipse"></span
+                                ><i class="i-ring-bell-filled"></i
+                                ><span class="coupon-remaining-day withoutIcon"
+                                  >Son 2 gün</span
+                                >
+                              </div>
+                            </div>
+                            <span class="coupon-products"
+                              ><a href="https://www.trendyol.com/sr?mid=569282"
+                                >Kuponun Ürünleri<i
+                                  class="i-arrow-right"
+                                ></i></a
+                            ></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="attributeSlider-fog"></div>
+              </div>
+            </div>
+          </div>
+          <div class="vas-product"></div>
+          <div class="featured-information" data-drroot="featured-information">
+            <div class="featured-information-header">Öne Çıkan Özellikler:</div>
+            <div
+              class="content-descriptions"
+              data-drroot="content-descriptions"
+            >
+              <ul id="content-descriptions-list">
+                <li>
+                  <span class="ellipse"></span>
+                  <div class="productDetailSupplierPopup">
+                    <div class="popupBuffer"></div>
+                    <div class="popupContent">
+                      <div class="popup-top">
+                        <div class="popup-logo">
+                          <i class="icon icon-trendyol-marketplace"></i>
+                        </div>
+                        <div class="popup-info">
+                          <div class="ttl">TRENDYOL PAZARYERİ</div>
+                          <div class="description">
+                            Tüm satıcılarımız Trendyol hizmet standartlarını
+                            garanti eder.
+                          </div>
+                          <div class="attributes">
+                            <div>
+                              <i class="pdp-icon-reloaded"></i>Ücretsiz İade
+                            </div>
+                            <div>
+                              <i class="pdp-icon-cargo"></i> Hızlı Teslimat
+                            </div>
+                            <div>
+                              <i class="pdp-icon-phone"></i
+                              ><span class="customer-support-text"
+                                >Trendyol <br />Müşteri Desteği</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="supplier-info">
+                        <span>Satıcı:<b> MYChannel </b></span
+                        ><span>Satıcı Ünvanı:<b> MEHMET YETİŞKUL </b></span
+                        ><span
+                          >İletişim:<b>
+                            Satıcının Trendyol tarafından teyit edilmiş e-posta
+                            ve iletişim adresi kayıt altındadır.
+                          </b></span
+                        ><span
+                          ><span id="cityInfo">Şehir:<b> Bursa </b></span></span
+                        ><span
+                          ><span
+                            >Vergi Kimlik Numarası:<b> 9520782019 </b></span
+                          ></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  Bu ürün
+                  <span class="product-description-market-place"
+                    >MYChannel</span
+                  >
+                  tarafından gönderilecektir.
+                </li>
+                <li>
+                  <span class="ellipse"></span>Kampanya fiyatından satılmak
+                  üzere 10 adetten fazla stok sunulmuştur.
+                </li>
+                <li>
+                  <span class="ellipse"></span>İncelemiş olduğunuz ürünün satış
+                  fiyatını satıcı belirlemektedir.
+                </li>
+                <li>
+                  <span class="ellipse"></span>Bir ürün, birden fazla satıcı
+                  tarafından satılabilir. Birden fazla satıcı tarafından satışa
+                  sunulan ürünlerin satıcıları ürün için belirledikleri fiyata,
+                  satıcı puanlarına, teslimat statülerine, ürünlerdeki
+                  promosyonlara, kargonun bedava olup olmamasına ve ürünlerin
+                  hızlı teslimat ile teslim edilip edilememesine, ürünlerin stok
+                  ve kategorileri bilgilerine göre sıralanmaktadır.
+                </li>
+                <li>
+                  <span class="ellipse"></span>Bu üründen en fazla&nbsp;11 adet
+                  sipariş verilebilir.&nbsp;11 adetin üzerindeki siparişleri
+                  Trendyol iptal etme hakkını saklı tutar.&nbsp;Bu kural
+                  bireysel alışverişler için geçerlidir.
+                </li>
+                <li class="return-info">
+                  <span class="ellipse"></span>15 gün içinde ücretsiz iade.
+                  Detaylı bilgi için
+                  <a class="product-description-link" href="javascript:void(0)"
+                    >tıklayın</a
+                  >.
+                </li>
+                <li>
+                  <span class="ellipse"></span>Siyah uzun yırtmaçlı Eloise
+                </li>
+              </ul>
+              <div class="opacity-layout"></div>
+            </div>
+            <div>
+              <div class="all-features">
+                <div class="opacity-layout"></div>
+                <div class="feature-buttons">
+                  <a rel="nofollow" class="button-all-features"
+                    >ÜRÜNÜN TÜM ÖZELLİKLERİ<i class="i-chevron-right"></i
+                  ></a>
+                </div>
+                <span class="line"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -49,7 +456,3 @@
     </div>
   </div>
 </div>
-
-
-   
-     
