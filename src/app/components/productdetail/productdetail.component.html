@@ -21,438 +21,1436 @@
   </div>
 </div>
 
-<div class="container" id="container">
-  <div class="flex-container">
-    <div class="gallery-container">
-      <div class="product-image-container">
-        <span class="gallery-icon-container left" (click)="showPreviousImage()"
-          ><</span
-        >
-        <span class="gallery-icon-container right" (click)="showNextImage()"
-          >></span
-        >
-        <div class="base-product-image">
-          <div
-            class="image-container"
-            (click)="onOpenGalleryModal()"
-            style="position: relative; overflow: hidden"
-          >
-            <lib-ngx-image-zoom
-              class=""
-              style="width: 600px; height: 400px; object-fit: cover"
-              [thumbImage]="mainImageSource"
-              [fullImage]="mainImageSource"
-              [magnification]="2"
-              [enableScrollZoom]="true"
-              [enableLens]="true"
-              [lensWidth]="300"
-              [lensHeight]="350"
-            ></lib-ngx-image-zoom>
-          </div>
-          <div class="styles-module_sliderBase__swkx1 product-slide-container">
-            <div
-              class="styles-module_slider__o0fqa"
-              *ngFor="let product of Products"
-            >
-              <div class="product-slide">
-                <img
-                  (mouseenter)="changeImage(product)"
-                  [src]="getImageSource(product)"
-                  loading="lazy"
-                />
+<main id="product-detail-app">
+  <div class="product-detail-container" id="container">
+    <div class="flex-container" style="justify-content: center">
+      <div class="product-container">
+        <div>
+          <div>
+            <div class="gallery-container">
+              <div class="product-image-container">
+                <span
+                  class="gallery-icon-container left"
+                  (click)="showPreviousImage()"
+                  ><fa-icon [icon]="faChevronLeft"></fa-icon
+                ></span>
+                <span
+                  class="gallery-icon-container right"
+                  (click)="showNextImage()"
+                  ><fa-icon [icon]="faChevronRight"></fa-icon
+                ></span>
+                <div class="base-product-image">
+                  <div
+                    class="image-container"
+                    (click)="onOpenGalleryModal()"
+                    style="position: relative; overflow: hidden"
+                  >
+                    <lib-ngx-image-zoom
+                      class=""
+                      style="width: 600px; height: 400px; object-fit: cover"
+                      [thumbImage]="mainImageSource"
+                      [fullImage]="mainImageSource"
+                      [magnification]="2"
+                      [enableScrollZoom]="true"
+                      [enableLens]="true"
+                      [lensWidth]="300"
+                      [lensHeight]="350"
+                    ></lib-ngx-image-zoom>
+                  </div>
+                  <div
+                    class="styles-module_sliderBase__swkx1 product-slide-container"
+                  >
+                    <div
+                      class="styles-module_slider__o0fqa"
+                      *ngFor="let product of Products"
+                    >
+                      <div class="product-slide">
+                        <img
+                          (mouseenter)="changeImage(product)"
+                          [src]="getImageSource(product)"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gallery-modal" id="galleryModal">
+                    <div class="gallery-modal-content">
+                      <i
+                        class="i-close"
+                        id="image"
+                        (click)="onCloseImageClick()"
+                        >X</i
+                      >
+                      <img [src]="mainImageSource" class="" alt="" />
+                      <i
+                        class="gallery-modal-icon i-arrow-right right"
+                        (click)="showNextImage()"
+                        ><fa-icon [icon]="faChevronRight"></fa-icon
+                      ></i>
+                      <i
+                        class="gallery-modal-icon i-arrow-right left"
+                        (click)="showPreviousImage()"
+                        ><fa-icon [icon]="faChevronLeft"></fa-icon
+                      ></i>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="gallery-modal" id="galleryModal">
-            <div class="gallery-modal-content">
-              <i class="i-close" id="image" (click)="onCloseImageClick()">X</i>
-              <img [src]="mainImageSource" class="" alt="" />
-              <i
-                class="gallery-modal-icon i-arrow-right right"
-                (click)="showNextImage()"
-                >></i
-              >
-              <i
-                class="gallery-modal-icon i-arrow-right left"
-                (click)="showPreviousImage()"
-                ><</i
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="container-right-content">
-        <div class="product-detail-wrapper">
-          <div class="pr-in-w">
-            <div>
-              <div class="pr-in-cn">
-                <div>
-                  <h1 class="pr-new-br" data-drroot="h1">
-                    <span class="product-brand-name-without-link"
-                      >SB COLLECTIONN</span
-                    ><span>
-                      Kadın Siyah Sırt Dekolte Yırtmaçlı Elbise SB0022
-                    </span>
-                  </h1>
+          <div style="width: 30px"></div>
+          <div>
+            <div class="container-right-content">
+              <div class="product-detail-wrapper">
+                <div class="pr-in-w">
+                  <div>
+                    <div class="pr-in-cn">
+                      <div>
+                        <h1 class="pr-new-br" data-drroot="h1">
+                          <span class="product-brand-name-without-link">{{
+                            product.productName
+                          }}</span
+                          ><span>
+                            {{ product.header }}
+                          </span>
+                        </h1>
+                      </div>
+                      <div class="pr-in-ratings">
+                        <div class="pr-in-rnr">
+                          <div class="review-tooltip">
+                            <div class="tooltip-indicator">
+                              <div class="rating-line-wrapper">
+                                <div class="rt-st-avg">
+                                  <div class="rating-line-count">4.1</div>
+                                  <div class="ratings readonly">
+                                    <div class="star-w">
+                                      <div class="empty">
+                                        <div class="star"></div>
+                                      </div>
+                                      <div
+                                        class="full"
+                                        style="width: 100%; max-width: 100%"
+                                      >
+                                        <div class="star"></div>
+                                      </div>
+                                    </div>
+                                    <div class="star-w">
+                                      <div class="empty">
+                                        <div class="star"></div>
+                                      </div>
+                                      <div
+                                        class="full"
+                                        style="width: 100%; max-width: 100%"
+                                      >
+                                        <div class="star"></div>
+                                      </div>
+                                    </div>
+                                    <div class="star-w">
+                                      <div class="empty">
+                                        <div class="star"></div>
+                                      </div>
+                                      <div
+                                        class="full"
+                                        style="width: 100%; max-width: 100%"
+                                      >
+                                        <div class="star"></div>
+                                      </div>
+                                    </div>
+                                    <div class="star-w">
+                                      <div class="empty">
+                                        <div class="star"></div>
+                                      </div>
+                                      <div
+                                        class="full"
+                                        style="width: 100%; max-width: 100%"
+                                      >
+                                        <div class="star"></div>
+                                      </div>
+                                    </div>
+                                    <div class="star-w">
+                                      <div class="empty">
+                                        <div class="star"></div>
+                                      </div>
+                                      <div
+                                        class="full"
+                                        style="width: 7%; max-width: 100%"
+                                      >
+                                        <div class="star"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="seperator"></div>
+                          <div class="rvw-cnt">
+                            <a
+                              href="/sb-collectionn/kadin-siyah-sirt-dekolte-yirtmacli-elbise-p-302734251/yorumlar?boutiqueId=61&amp;merchantId=569282&amp;v=s"
+                              class="rvw-cnt-tx"
+                              ><span class="total-review-count">2935</span>
+                              Değerlendirme</a
+                            ><img
+                              class="camera-icon"
+                              src="https://cdn.dsmcdn.com/mobile/reviewrating/kamera-emoji6x.png"
+                            />
+                          </div>
+                          <div class="seperator"></div>
+                          <div class="product-favorite-container">
+                            <fa-icon   [icon]="faHeart" style="margin-right: 5px">
+                            </fa-icon>
+                            <div class="product-favorite-info">
+                              <span class="favorite-count">209101</span> Favori
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-price-container">
+                        <div class="pr-bx-w">
+                          <div class="pr-bx-nm with-org-prc">
+                            <span class="prc-dsc"
+                              >{{ product.unitPrice }} TL</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-info-badges"></div>
+                    </div>
+                  </div>
                 </div>
-                <div class="pr-in-ratings">
-                  <div class="pr-in-rnr">
+                <div class="size-variant-wrapper" data-drroot="size-variant">
+                  <div class="size-variant-title-wrapper">
+                    <span class="size-variant-title"
+                      ><span class="size-variant-title--bold">Size</span>:
+                      <span
+                        class="size-variant-attr-value"
+                        *ngIf="selectedSize"
+                        >{{ selectedSize }}</span
+                      >
+                      <span
+                        class="size-variant-attr-value"
+                        style="color: #f27a1a"
+                        *ngIf="!selectedSize"
+                        >Please choose size....</span
+                      >
+                    </span>
+                  </div>
+                  <div class="variants">
+                    <div class="attributeSlider">
+                      <div
+                        class="styles-module_sliderBase__swkx1 attributeSlider-carousel"
+                        data-testid="carousel"
+                      >
+                        <div class="styles-module_slider__o0fqa">
+                          <div
+                            *ngFor="let size of Sizes"
+                            class="sp-itm"
+                            (click)="changeSizeValue(size)"
+                            [class]="size + ' ' + changeSizesWithClassName"
+                            title="Beden seçmek için tıklayınız"
+                          >
+                            {{ size }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="attributeSlider-fog"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="product-button-container">
+                  <div class="favorite-button">
                     <div class="review-tooltip">
                       <div class="tooltip-indicator">
-                        <div class="rating-line-wrapper">
-                          <div class="rt-st-avg">
-                            <div class="rating-line-count">4.1</div>
-                            <div class="ratings readonly">
-                              <div class="star-w">
-                                <div class="empty">
-                                  <div class="star"></div>
-                                </div>
-                                <div
-                                  class="full"
-                                  style="width: 100%; max-width: 100%"
-                                >
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="star-w">
-                                <div class="empty">
-                                  <div class="star"></div>
-                                </div>
-                                <div
-                                  class="full"
-                                  style="width: 100%; max-width: 100%"
-                                >
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="star-w">
-                                <div class="empty">
-                                  <div class="star"></div>
-                                </div>
-                                <div
-                                  class="full"
-                                  style="width: 100%; max-width: 100%"
-                                >
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="star-w">
-                                <div class="empty">
-                                  <div class="star"></div>
-                                </div>
-                                <div
-                                  class="full"
-                                  style="width: 100%; max-width: 100%"
-                                >
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="star-w">
-                                <div class="empty">
-                                  <div class="star"></div>
-                                </div>
-                                <div
-                                  class="full"
-                                  style="width: 7%; max-width: 100%"
-                                >
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="seperator"></div>
-                    <div class="rvw-cnt">
-                      <a
-                        href="/sb-collectionn/kadin-siyah-sirt-dekolte-yirtmacli-elbise-p-302734251/yorumlar?boutiqueId=61&amp;merchantId=569282&amp;v=s"
-                        class="rvw-cnt-tx"
-                        ><span class="total-review-count">2935</span>
-                        Değerlendirme</a
-                      ><img
-                        class="camera-icon"
-                        src="https://cdn.dsmcdn.com/mobile/reviewrating/kamera-emoji6x.png"
-                      />
-                    </div>
-                    <div class="seperator"></div>
-                    <a
-                      class="product-questions"
-                      href="/sb-collectionn/kadin-siyah-sirt-dekolte-yirtmacli-elbise-p-302734251/saticiya-sor?merchantId=569282"
-                      ><span class="answered-questions-count">962</span> Soru
-                      &amp; Cevap</a
-                    >
-                    <div class="seperator"></div>
-                    <div class="product-favorite-container">
-                      <i class="i-heart"></i>
-                      <div class="product-favorite-info">
-                        <span class="favorite-count">209101</span> Favori
+                        <button class="fv" (click)="addFavourite()">
+                          <fa-icon [icon]="faHeart"> </fa-icon>
+                        </button>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="product-price-container">
-                  <div class="pr-bx-w">
-                    <div class="pr-bx-nm with-org-prc">
-                      <span class="prc-dsc">145 TL</span>
+                  <button component-id="1" class="add-to-basket" (click)="addToCart()"> 
+                    <div class="add-to-basket-button-text">Sepete Ekle</div>
+                    <div class="add-to-basket-button-text-success">
+                      Sepete Eklendi
                     </div>
-                  </div>
+                    <div class="add-to-bs-ldr"></div>
+                  </button>
+                  
+                 
                 </div>
-                <div class="product-info-badges"></div>
-              </div>
-            </div>
-          </div>
-          <div class="size-variant-wrapper" data-drroot="size-variant">
-            <div class="size-variant-title-wrapper">
-              <span class="size-variant-title"
-                ><span class="size-variant-title--bold">Beden</span>:
-                <span class="size-variant-attr-value">S</span></span
-              >
-            </div>
-            <div class="variants">
-              <div class="attributeSlider">
+
+                <div class="vas-product"></div>
                 <div
-                  class="styles-module_sliderBase__swkx1 attributeSlider-carousel"
-                  data-testid="carousel"
+                  class="featured-information"
+                  data-drroot="featured-information"
                 >
-                  <div class="styles-module_slider__o0fqa">
-                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
-                      XS
-                    </div>
-                    <div
-                      class="selected sp-itm"
-                      title="Beden seçmek için tıklayınız"
-                    >
-                      S
-                    </div>
-                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
-                      M
-                    </div>
-                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
-                      L
-                    </div>
-                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
-                      XL
-                    </div>
-                    <div class="sp-itm" title="Beden seçmek için tıklayınız">
-                      XXL
-                    </div>
+                  <div class="featured-information-header">
+                    Öne Çıkan Özellikler:
                   </div>
-                </div>
-                <div class="attributeSlider-fog"></div>
-              </div>
-            </div>
-          </div>
-          <div class="product-button-container">
-            <button component-id="1" class="add-to-basket">
-              <div class="add-to-basket-button-text">Sepete Ekle</div>
-              <div class="add-to-basket-button-text-success">
-                Sepete Eklendi
-              </div>
-              <div class="add-to-bs-ldr"></div>
-            </button>
-            <div class="favorite-button">
-              <div class="review-tooltip">
-                <div class="tooltip-indicator">
-                  <button class="fv"><i class="i-heart"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <aside class="delivery-favorite-info">
-            <div class="delivery-and-favorite-wrapper">
-              <div class="pr-dd product-delivery-badge">
-                <div class="pr-dd-rs-w">
-                  <div class="same-day-shipping badge">
-                    <div class="i-fast-delivery-filled"></div>
-                    <div>
-                      <strong>19 saat 7 dakika</strong> içinde sipariş verirsen
-                      <strong>en geç yarın</strong> kargoda!
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-          <div component-id="3" class="collectable-coupons-wrapper">
-            <div class="collectable-coupons-header">
-              <span class="collectable-coupons-title">Kuponlar</span>
-            </div>
-            <div class="collectable-coupons-content">
-              <div class="attributeSlider">
-                <div
-                  class="styles-module_sliderBase__swkx1 attributeSlider-carousel"
-                  data-testid="carousel"
-                >
-                  <div class="styles-module_slider__o0fqa">
-                    <div class="coupon-item-wrapper">
-                      <div class="coupon-item-content">
-                        <div class="coupon-item-container">
-                          <div class="coupon-item-first-line">
-                            <div class="coupon-price-container-upper">
-                              <span class="coupon-running-out"
-                                ><i class="i-running-out"></i>Tükeniyor!</span
-                              >
-                            </div>
-                            <div class="coupon-price-container-bottom">
-                              <div class="coupon">
-                                <p class="coupon-discount">10 TL</p>
-                              </div>
-                              <div class="coupon-collect-button">
-                                <span class="coupon-collect-button-text"
-                                  >Kazan</span
-                                >
-                              </div>
-                            </div>
-                          </div>
-                          <hr class="horizontal-line" />
-                          <div class="coupon-item-right-side">
-                            <div class="coupon-item-upper">
-                              <div class="coupon-price-content">
-                                <p class="coupon-lower-limit">
-                                  <span class="ellipse"></span>Alt Limit
-                                  <span>225 TL</span>
-                                </p>
-                              </div>
-                              <div class="coupon-remaining-container">
-                                <span class="ellipse"></span
-                                ><i class="i-ring-bell-filled"></i
-                                ><span class="coupon-remaining-day withoutIcon"
-                                  >Son 2 gün</span
-                                >
-                              </div>
-                            </div>
-                            <span class="coupon-products"
-                              ><a href="https://www.trendyol.com/sr?mid=569282"
-                                >Kuponun Ürünleri<i
-                                  class="i-arrow-right"
-                                ></i></a
-                            ></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="attributeSlider-fog"></div>
-              </div>
-            </div>
-          </div>
-          <div class="vas-product"></div>
-          <div class="featured-information" data-drroot="featured-information">
-            <div class="featured-information-header">Öne Çıkan Özellikler:</div>
-            <div
-              class="content-descriptions"
-              data-drroot="content-descriptions"
-            >
-              <ul id="content-descriptions-list">
-                <li>
-                  <span class="ellipse"></span>
-                  <div class="productDetailSupplierPopup">
-                    <div class="popupBuffer"></div>
-                    <div class="popupContent">
-                      <div class="popup-top">
-                        <div class="popup-logo">
-                          <i class="icon icon-trendyol-marketplace"></i>
-                        </div>
-                        <div class="popup-info">
-                          <div class="ttl">TRENDYOL PAZARYERİ</div>
-                          <div class="description">
-                            Tüm satıcılarımız Trendyol hizmet standartlarını
-                            garanti eder.
-                          </div>
-                          <div class="attributes">
-                            <div>
-                              <i class="pdp-icon-reloaded"></i>Ücretsiz İade
-                            </div>
-                            <div>
-                              <i class="pdp-icon-cargo"></i> Hızlı Teslimat
-                            </div>
-                            <div>
-                              <i class="pdp-icon-phone"></i
-                              ><span class="customer-support-text"
-                                >Trendyol <br />Müşteri Desteği</span
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="supplier-info">
-                        <span>Satıcı:<b> MYChannel </b></span
-                        ><span>Satıcı Ünvanı:<b> MEHMET YETİŞKUL </b></span
-                        ><span
-                          >İletişim:<b>
-                            Satıcının Trendyol tarafından teyit edilmiş e-posta
-                            ve iletişim adresi kayıt altındadır.
-                          </b></span
-                        ><span
-                          ><span id="cityInfo">Şehir:<b> Bursa </b></span></span
-                        ><span
-                          ><span
-                            >Vergi Kimlik Numarası:<b> 9520782019 </b></span
-                          ></span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  Bu ürün
-                  <span class="product-description-market-place"
-                    >MYChannel</span
+                  <div
+                    class="content-descriptions"
+                    data-drroot="content-descriptions"
                   >
-                  tarafından gönderilecektir.
-                </li>
-                <li>
-                  <span class="ellipse"></span>Kampanya fiyatından satılmak
-                  üzere 10 adetten fazla stok sunulmuştur.
-                </li>
-                <li>
-                  <span class="ellipse"></span>İncelemiş olduğunuz ürünün satış
-                  fiyatını satıcı belirlemektedir.
-                </li>
-                <li>
-                  <span class="ellipse"></span>Bir ürün, birden fazla satıcı
-                  tarafından satılabilir. Birden fazla satıcı tarafından satışa
-                  sunulan ürünlerin satıcıları ürün için belirledikleri fiyata,
-                  satıcı puanlarına, teslimat statülerine, ürünlerdeki
-                  promosyonlara, kargonun bedava olup olmamasına ve ürünlerin
-                  hızlı teslimat ile teslim edilip edilememesine, ürünlerin stok
-                  ve kategorileri bilgilerine göre sıralanmaktadır.
-                </li>
-                <li>
-                  <span class="ellipse"></span>Bu üründen en fazla&nbsp;11 adet
-                  sipariş verilebilir.&nbsp;11 adetin üzerindeki siparişleri
-                  Trendyol iptal etme hakkını saklı tutar.&nbsp;Bu kural
-                  bireysel alışverişler için geçerlidir.
-                </li>
-                <li class="return-info">
-                  <span class="ellipse"></span>15 gün içinde ücretsiz iade.
-                  Detaylı bilgi için
-                  <a class="product-description-link" href="javascript:void(0)"
-                    >tıklayın</a
-                  >.
-                </li>
-                <li>
-                  <span class="ellipse"></span>Siyah uzun yırtmaçlı Eloise
-                </li>
-              </ul>
-              <div class="opacity-layout"></div>
-            </div>
-            <div>
-              <div class="all-features">
-                <div class="opacity-layout"></div>
-                <div class="feature-buttons">
-                  <a rel="nofollow" class="button-all-features"
-                    >ÜRÜNÜN TÜM ÖZELLİKLERİ<i class="i-chevron-right"></i
-                  ></a>
+                    <ul id="content-descriptions-list">
+                      <li>
+                        <span class="ellipse"></span>
+                        <div class="productDetailSupplierPopup">
+                          <div class="popupBuffer"></div>
+                        </div>
+                        Bu ürün
+                        <span class="product-description-market-place"
+                          >MYChannel</span
+                        >
+                        tarafından gönderilecektir.
+                      </li>
+                      <li>
+                        <span class="ellipse"></span>Kampanya fiyatından
+                        satılmak üzere 10 adetten fazla stok sunulmuştur.
+                      </li>
+                      <li>
+                        <span class="ellipse"></span>İncelemiş olduğunuz ürünün
+                        satış fiyatını satıcı belirlemektedir.
+                      </li>
+                      <li>
+                        <span class="ellipse"></span>Bir ürün, birden fazla
+                        satıcı tarafından satılabilir. Birden fazla satıcı
+                        tarafından satışa sunulan ürünlerin satıcıları ürün için
+                        belirledikleri fiyata, satıcı puanlarına, teslimat
+                        statülerine, ürünlerdeki promosyonlara, kargonun bedava
+                        olup olmamasına ve ürünlerin hızlı teslimat ile teslim
+                        edilip edilememesine, ürünlerin stok ve kategorileri
+                        bilgilerine göre sıralanmaktadır.
+                      </li>
+                      <li>
+                        <span class="ellipse"></span>Bu üründen en fazla&nbsp;11
+                        adet sipariş verilebilir.&nbsp;11 adetin üzerindeki
+                        siparişleri Trendyol iptal etme hakkını saklı
+                        tutar.&nbsp;Bu kural bireysel alışverişler için
+                        geçerlidir.
+                      </li>
+                      <li class="return-info">
+                        <span class="ellipse"></span>15 gün içinde ücretsiz
+                        iade. Detaylı bilgi için
+                        <a
+                          class="product-description-link"
+                          href="javascript:void(0)"
+                          >tıklayın</a
+                        >.
+                      </li>
+                      <li>
+                        <span class="ellipse"></span>Siyah uzun yırtmaçlı Eloise
+                      </li>
+                    </ul>
+                    <div class="opacity-layout"></div>
+                  </div>
+                  <div>
+                    <div class="all-features">
+                      <div class="opacity-layout"></div>
+                      <div class="feature-buttons">
+                        <a
+                          rel="nofollow"
+                          class="button-all-features"
+                          (click)="scrollToSection()"
+                          >ÜRÜNÜN TÜM ÖZELLİKLERİ
+                          <fa-icon [icon]="faChevronRight"></fa-icon
+                        ></a>
+                      </div>
+                      <span class="line"></span>
+                    </div>
+                  </div>
                 </div>
-                <span class="line"></span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <br />
+    <aside
+      component-id="1"
+      class="pr-rcs-w productDetail-Similar"
+      data-drroot="similar-products"
+    >
+      <div class="pr-rcs-tl title"><h3>Benzer Ürünler</h3></div>
+      <div class="pr-rcs-pds">
+        <div
+          data-testid="carousel"
+          tabindex="0"
+          class="styles-module_carousel-base__3keqD crs-pr-crl"
+        >
+          <div class="styles-module_item-provider__YgMwz">
+            <div
+              class="styles-module_item-tracker__3bypy"
+              style="transition: transform 0s ease 0s; width: 100%"
+            >
+              <div
+                class="styles-module_item-container__a8zaY"
+                style="width: 222.43px; pointer-events: all; position: relative"
+              >
+                <div class="pr-rc-w with-fav">
+                  <a
+                    href="/kigili/100-pamuk-orta-petrol-polo-yaka-regular-fit-nakisli-tisort-p-688049869"
+                    ><div class="pr-rc-img gnr-cnt-br ftrd-prd-crd">
+                      <img
+                        class="pd-img"
+                        loading="lazy"
+                        src="https://cdn.dsmcdn.com/ty972/product/media/images/20230727/11/397196284/910528964/1/1_org_thumb.jpg"
+                        alt=""
+                      />
+                      <div class="custom-stamp-box-wrapper">
+                        <img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ul"
+                          src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/e68c3d96-a877-4e49-923b-ca420419ab40.png"
+                          style="width: 47.5px"
+                        /><img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ll"
+                          src="https://cdn.dsmcdn.com//seller-ads/editor/resources/seller-selection-stamp-v14.png"
+                          style="width: 66.5px"
+                        />
+                      </div>
+                    </div>
+                    <div class="pr-rc-dc">
+                      <div class="pr-nm-ct">
+                        <span class="pr-rc-br">Kiğılı</span
+                        ><span
+                          class="pr-rc-nm"
+                          title="%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı Tişört"
+                          >%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı
+                          Tişört</span
+                        >
+                      </div>
+                      <div class="pr-nm-rs">
+                        <div class="product-rating">
+                          <div class="ratings readonly">
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 66%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="rating-count">(59)</span>
+                        </div>
+                      </div>
+                      <div class="pr-bx-w v2">
+                        <div class="pr-bx-nm with-org-prc">
+                          <span class="prc-dsc">199,99 TL</span>
+                        </div>
+                      </div>
+                      <div class="pr-rc-prs"></div></div
+                  ></a>
+                  <div class="fc-btn-fav">
+                    <button class="featured-fv">
+                      <fa-icon
+                        style="font-size: 16px"
+                        [icon]="faHeart"
+                      ></fa-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="styles-module_item-container__a8zaY"
+                style="width: 222.43px; pointer-events: all; position: relative"
+              >
+                <div class="pr-rc-w with-fav">
+                  <a
+                    href="/kigili/100-pamuk-orta-petrol-polo-yaka-regular-fit-nakisli-tisort-p-688049869"
+                    ><div class="pr-rc-img gnr-cnt-br ftrd-prd-crd">
+                      <img
+                        class="pd-img"
+                        loading="lazy"
+                        src="https://cdn.dsmcdn.com/ty972/product/media/images/20230727/11/397196284/910528964/1/1_org_thumb.jpg"
+                        alt=""
+                      />
+                      <div class="custom-stamp-box-wrapper">
+                        <img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ul"
+                          src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/e68c3d96-a877-4e49-923b-ca420419ab40.png"
+                          style="width: 47.5px"
+                        /><img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ll"
+                          src="https://cdn.dsmcdn.com//seller-ads/editor/resources/seller-selection-stamp-v14.png"
+                          style="width: 66.5px"
+                        />
+                      </div>
+                    </div>
+                    <div class="pr-rc-dc">
+                      <div class="pr-nm-ct">
+                        <span class="pr-rc-br">Kiğılı</span
+                        ><span
+                          class="pr-rc-nm"
+                          title="%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı Tişört"
+                          >%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı
+                          Tişört</span
+                        >
+                      </div>
+                      <div class="pr-nm-rs">
+                        <div class="product-rating">
+                          <div class="ratings readonly">
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 66%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="rating-count">(59)</span>
+                        </div>
+                      </div>
+                      <div class="pr-bx-w v2">
+                        <div class="pr-bx-nm with-org-prc">
+                          <span class="prc-dsc">199,99 TL</span>
+                        </div>
+                      </div>
+                      <div class="pr-rc-prs"></div></div
+                  ></a>
+                  <div class="fc-btn-fav">
+                    <button class="featured-fv">
+                      <fa-icon
+                        style="font-size: 16px"
+                        [icon]="faHeart"
+                      ></fa-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="styles-module_item-container__a8zaY"
+                style="width: 222.43px; pointer-events: all; position: relative"
+              >
+                <div class="pr-rc-w with-fav">
+                  <a
+                    href="/kigili/100-pamuk-orta-petrol-polo-yaka-regular-fit-nakisli-tisort-p-688049869"
+                    ><div class="pr-rc-img gnr-cnt-br ftrd-prd-crd">
+                      <img
+                        class="pd-img"
+                        loading="lazy"
+                        src="https://cdn.dsmcdn.com/ty972/product/media/images/20230727/11/397196284/910528964/1/1_org_thumb.jpg"
+                        alt=""
+                      />
+                      <div class="custom-stamp-box-wrapper">
+                        <img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ul"
+                          src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/e68c3d96-a877-4e49-923b-ca420419ab40.png"
+                          style="width: 47.5px"
+                        /><img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ll"
+                          src="https://cdn.dsmcdn.com//seller-ads/editor/resources/seller-selection-stamp-v14.png"
+                          style="width: 66.5px"
+                        />
+                      </div>
+                    </div>
+                    <div class="pr-rc-dc">
+                      <div class="pr-nm-ct">
+                        <span class="pr-rc-br">Kiğılı</span
+                        ><span
+                          class="pr-rc-nm"
+                          title="%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı Tişört"
+                          >%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı
+                          Tişört</span
+                        >
+                      </div>
+                      <div class="pr-nm-rs">
+                        <div class="product-rating">
+                          <div class="ratings readonly">
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 66%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="rating-count">(59)</span>
+                        </div>
+                      </div>
+                      <div class="pr-bx-w v2">
+                        <div class="pr-bx-nm with-org-prc">
+                          <span class="prc-dsc">199,99 TL</span>
+                        </div>
+                      </div>
+                      <div class="pr-rc-prs"></div></div
+                  ></a>
+                  <div class="fc-btn-fav">
+                    <button class="featured-fv">
+                      <fa-icon
+                        style="font-size: 16px"
+                        [icon]="faHeart"
+                      ></fa-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="styles-module_item-container__a8zaY"
+                style="width: 222.43px; pointer-events: all; position: relative"
+              >
+                <div class="pr-rc-w with-fav">
+                  <a
+                    href="/kigili/100-pamuk-orta-petrol-polo-yaka-regular-fit-nakisli-tisort-p-688049869"
+                    ><div class="pr-rc-img gnr-cnt-br ftrd-prd-crd">
+                      <img
+                        class="pd-img"
+                        loading="lazy"
+                        src="https://cdn.dsmcdn.com/ty972/product/media/images/20230727/11/397196284/910528964/1/1_org_thumb.jpg"
+                        alt=""
+                      />
+                      <div class="custom-stamp-box-wrapper">
+                        <img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ul"
+                          src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/e68c3d96-a877-4e49-923b-ca420419ab40.png"
+                          style="width: 47.5px"
+                        /><img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ll"
+                          src="https://cdn.dsmcdn.com//seller-ads/editor/resources/seller-selection-stamp-v14.png"
+                          style="width: 66.5px"
+                        />
+                      </div>
+                    </div>
+                    <div class="pr-rc-dc">
+                      <div class="pr-nm-ct">
+                        <span class="pr-rc-br">Kiğılı</span
+                        ><span
+                          class="pr-rc-nm"
+                          title="%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı Tişört"
+                          >%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı
+                          Tişört</span
+                        >
+                      </div>
+                      <div class="pr-nm-rs">
+                        <div class="product-rating">
+                          <div class="ratings readonly">
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 66%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="rating-count">(59)</span>
+                        </div>
+                      </div>
+                      <div class="pr-bx-w v2">
+                        <div class="pr-bx-nm with-org-prc">
+                          <span class="prc-dsc">199,99 TL</span>
+                        </div>
+                      </div>
+                      <div class="pr-rc-prs"></div></div
+                  ></a>
+                  <div class="fc-btn-fav">
+                    <button class="featured-fv">
+                      <fa-icon
+                        style="font-size: 16px"
+                        [icon]="faHeart"
+                      ></fa-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="styles-module_item-container__a8zaY"
+                style="width: 222.43px; pointer-events: all; position: relative"
+              >
+                <div class="pr-rc-w with-fav">
+                  <a
+                    href="/kigili/100-pamuk-orta-petrol-polo-yaka-regular-fit-nakisli-tisort-p-688049869"
+                    ><div class="pr-rc-img gnr-cnt-br ftrd-prd-crd">
+                      <img
+                        class="pd-img"
+                        loading="lazy"
+                        src="https://cdn.dsmcdn.com/ty972/product/media/images/20230727/11/397196284/910528964/1/1_org_thumb.jpg"
+                        alt=""
+                      />
+                      <div class="custom-stamp-box-wrapper">
+                        <img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ul"
+                          src="https://cdn.dsmcdn.com/indexing-sticker-stamp/moon/e68c3d96-a877-4e49-923b-ca420419ab40.png"
+                          style="width: 47.5px"
+                        /><img
+                          alt=""
+                          loading="lazy"
+                          class="featured-product-stamp ll"
+                          src="https://cdn.dsmcdn.com//seller-ads/editor/resources/seller-selection-stamp-v14.png"
+                          style="width: 66.5px"
+                        />
+                      </div>
+                    </div>
+                    <div class="pr-rc-dc">
+                      <div class="pr-nm-ct">
+                        <span class="pr-rc-br">Kiğılı</span
+                        ><span
+                          class="pr-rc-nm"
+                          title="%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı Tişört"
+                          >%100 Pamuk Orta Petrol Polo Yaka Regular Fit Nakışlı
+                          Tişört</span
+                        >
+                      </div>
+                      <div class="pr-nm-rs">
+                        <div class="product-rating">
+                          <div class="ratings readonly">
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 100%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                            <div class="star-w">
+                              <div class="empty"><div class="star"></div></div>
+                              <div
+                                class="full"
+                                style="width: 66%; max-width: 100%"
+                              >
+                                <div class="star"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="rating-count">(59)</span>
+                        </div>
+                      </div>
+                      <div class="pr-bx-w v2">
+                        <div class="pr-bx-nm with-org-prc">
+                          <span class="prc-dsc">199,99 TL</span>
+                        </div>
+                      </div>
+                      <div class="pr-rc-prs"></div></div
+                  ></a>
+                  <div class="fc-btn-fav">
+                    <button class="featured-fv">
+                      <fa-icon
+                        style="font-size: 16px"
+                        [icon]="faHeart"
+                      ></fa-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <article
+      component-id="16"
+      class="pr-rnr-w"
+      data-drroot="product-reviews"
+      style=""
+    >
+      <h2 class="title" id="product-reviews-dr">Ürün Değerlendirmeleri</h2>
+      <div class="pr-rnr-cn gnr-cnt-br">
+        <div>
+          <div class="pr-rnr-sm">
+            <div class="pr-rnr-sm-p">
+              <span>4.7</span>
+              <div class="rt-st-avg">
+                <div class="ratings readonly">
+                  <div class="star-w">
+                    <div class="empty"><div class="star"></div></div>
+                    <div class="full" style="width: 100%; max-width: 100%">
+                      <div class="star"></div>
+                    </div>
+                  </div>
+                  <div class="star-w">
+                    <div class="empty"><div class="star"></div></div>
+                    <div class="full" style="width: 100%; max-width: 100%">
+                      <div class="star"></div>
+                    </div>
+                  </div>
+                  <div class="star-w">
+                    <div class="empty"><div class="star"></div></div>
+                    <div class="full" style="width: 100%; max-width: 100%">
+                      <div class="star"></div>
+                    </div>
+                  </div>
+                  <div class="star-w">
+                    <div class="empty"><div class="star"></div></div>
+                    <div class="full" style="width: 100%; max-width: 100%">
+                      <div class="star"></div>
+                    </div>
+                  </div>
+                  <div class="star-w">
+                    <div class="empty"><div class="star"></div></div>
+                    <div class="full" style="width: 66%; max-width: 100%">
+                      <div class="star"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="review-tooltip">
+                <div class="tooltip-indicator">
+                  <div class="shw-rw-avg"><i class="rw-arr-dwn"></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="pr-rnr-sm-p-s">
+              <span>3291 Değerlendirme</span>
+              <div class="seperator"></div>
+              <span>1899 Yorum</span>
+            </div>
+            <div class="pr-rnr-bt"></div>
+          </div>
+        </div>
+        <div class="pr-rnr-com-w">
+          <div class="pr-rnr-com">
+            <article class="rnr-com-w">
+              <div class="rnr-com-cn">
+                <div class="rnr-com-tx">
+                  <span class="rnr-inline-rating"
+                    ><div class="ratings readonly">
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div></div
+                  ></span>
+                  <p>
+                    Üç rengini aldım diğer renklerini de almayı düşünüyorum çok
+                    güzel tam beden alın
+                  </p>
+                </div>
+              </div>
+              <div class="rnr-com-bt">
+                <div>
+                  <span class="rnr-com-usr"
+                    >M** G**<span class="pipe">|</span>
+                    20 Kasım 2022
+                    <span></span
+                  ></span>
+                </div>
+              </div>
+            </article>
+            <div class="seperator"></div>
+            <article class="rnr-com-w">
+              <div class="rnr-com-cn">
+                <div class="rnr-com-tx">
+                  <span class="rnr-inline-rating"
+                    ><div class="ratings readonly">
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 0%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div></div
+                  ></span>
+                  <p>
+                    çok güzel ürün tavsiye ederim boy 1.78 kilo 98 Xl aldım tam
+                    oldu
+                  </p>
+                </div>
+              </div>
+              <div class="rnr-com-bt">
+                <div>
+                  <span class="rnr-com-usr"
+                    >M** Ç**<span class="pipe">|</span>30 Kasım 2022<span
+                      class="seller-name-desc"
+                      ><span class="pipe">|</span
+                      ><span class="seller-name-info">AVVA</span> satıcısından
+                      alındı.</span
+                    ><span
+                      ><span class="pipe">|</span><span>Beden: XL</span></span
+                    ></span
+                  >
+                </div>
+                <div class="review-like-tooltip">
+                  <div class="review-tooltip">
+                    <div class="tooltip-indicator">
+                      <div class="rnr-com-like">
+                        <div class="thumbs-up">
+                          <svg
+                            width="15px"
+                            height="15px"
+                            viewBox="0 0 15 14"
+                            version="1.1"
+                            stroke="none"
+                            stroke-width="1"
+                          >
+                            <path
+                              d="M-4.54747351e-13,14.3333336 L2.66666673,14.3333336 L2.66666673,6.33333345 L-4.54747351e-13,6.33333345 L-4.54747351e-13,14.3333336 Z M14.666667,7.00000014 C14.666667,6.26666679 14.066667,5.66666677 13.3333336,5.66666677 L9.12666687,5.66666677 L9.76000022,2.62000004 L9.78000022,2.4066667 C9.78000022,2.13333336 9.66666689,1.88000002 9.48666688,1.70000002 L8.7800002,1 L4.39333343,5.39333343 C4.14666676,5.63333344 4.00000009,5.96666678 4.00000009,6.33333345 L4.00000009,13.0000003 C4.00000009,13.7333336 4.6000001,14.3333336 5.33333345,14.3333336 L11.3333336,14.3333336 C11.8866669,14.3333336 12.3600003,14.0000003 12.5600003,13.5200003 L14.5733337,8.82000018 C14.6333337,8.66666684 14.666667,8.50666684 14.666667,8.3333335 L14.666667,7.00000014 Z"
+                              id="Shape-2"
+                            ></path>
+                          </svg>
+                        </div>
+                        <span>Yorumu Beğen</span><span>(0)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rnr-com-tl-rg">
+                  <div>
+                    <div class="rnr-com-opts-btn"></div>
+                    <div class="rnr-com-opts">
+                      <a class="report-abuse"
+                        ><i class="i-warning-square"></i>Şikayet Et</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <div class="seperator"></div>
+            <article class="rnr-com-w">
+              <div class="rnr-com-cn">
+                <div class="rnr-com-tx">
+                  <span class="rnr-inline-rating"
+                    ><div class="ratings readonly">
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div></div
+                  ></span>
+                  <p>Eşime aldım çok beğendi.Kaliteli.</p>
+                </div>
+              </div>
+              <div class="rnr-com-bt">
+                <div>
+                  <span class="rnr-com-usr"
+                    >**** ****<span class="pipe">|</span>12 Kasım 2022<span
+                      class="seller-name-desc"
+                      ><span class="pipe">|</span
+                      ><span class="seller-name-info">AVVA</span> satıcısından
+                      alındı.</span
+                    ><span
+                      ><span class="pipe">|</span><span>Beden: M</span></span
+                    ></span
+                  >
+                </div>
+                <div class="review-like-tooltip">
+                  <div class="review-tooltip">
+                    <div class="tooltip-indicator">
+                      <div class="rnr-com-like">
+                        <div class="thumbs-up">
+                          <svg
+                            width="15px"
+                            height="15px"
+                            viewBox="0 0 15 14"
+                            version="1.1"
+                            stroke="none"
+                            stroke-width="1"
+                          >
+                            <path
+                              d="M-4.54747351e-13,14.3333336 L2.66666673,14.3333336 L2.66666673,6.33333345 L-4.54747351e-13,6.33333345 L-4.54747351e-13,14.3333336 Z M14.666667,7.00000014 C14.666667,6.26666679 14.066667,5.66666677 13.3333336,5.66666677 L9.12666687,5.66666677 L9.76000022,2.62000004 L9.78000022,2.4066667 C9.78000022,2.13333336 9.66666689,1.88000002 9.48666688,1.70000002 L8.7800002,1 L4.39333343,5.39333343 C4.14666676,5.63333344 4.00000009,5.96666678 4.00000009,6.33333345 L4.00000009,13.0000003 C4.00000009,13.7333336 4.6000001,14.3333336 5.33333345,14.3333336 L11.3333336,14.3333336 C11.8866669,14.3333336 12.3600003,14.0000003 12.5600003,13.5200003 L14.5733337,8.82000018 C14.6333337,8.66666684 14.666667,8.50666684 14.666667,8.3333335 L14.666667,7.00000014 Z"
+                              id="Shape-2"
+                            ></path>
+                          </svg>
+                        </div>
+                        <span>Yorumu Beğen</span><span>(0)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rnr-com-tl-rg">
+                  <div>
+                    <div class="rnr-com-opts-btn"></div>
+                    <div class="rnr-com-opts">
+                      <a class="report-abuse"
+                        ><i class="i-warning-square"></i>Şikayet Et</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <div class="seperator"></div>
+            <article class="rnr-com-w">
+              <div class="rnr-com-cn">
+                <div class="rnr-com-tx">
+                  <span class="rnr-inline-rating"
+                    ><div class="ratings readonly">
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div></div
+                  ></span>
+                  <p>
+                    kalitesi çok güzel. nişanlima aldım çok beğendi. dokusu
+                    yumuşak. tam beden alabilirsiniz
+                  </p>
+                </div>
+              </div>
+              <div class="rnr-com-bt">
+                <div>
+                  <span class="rnr-com-usr"
+                    >s** i**<span class="pipe">|</span>13 Şubat 2023<span
+                      class="seller-name-desc"
+                      ><span class="pipe">|</span
+                      ><span class="seller-name-info">AVVA</span> satıcısından
+                      alındı.</span
+                    ><span
+                      ><span class="pipe">|</span><span>Beden: XS</span></span
+                    ></span
+                  >
+                </div>
+                <div class="review-like-tooltip">
+                  <div class="review-tooltip">
+                    <div class="tooltip-indicator">
+                      <div class="rnr-com-like">
+                        <div class="thumbs-up">
+                          <svg
+                            width="15px"
+                            height="15px"
+                            viewBox="0 0 15 14"
+                            version="1.1"
+                            stroke="none"
+                            stroke-width="1"
+                          >
+                            <path
+                              d="M-4.54747351e-13,14.3333336 L2.66666673,14.3333336 L2.66666673,6.33333345 L-4.54747351e-13,6.33333345 L-4.54747351e-13,14.3333336 Z M14.666667,7.00000014 C14.666667,6.26666679 14.066667,5.66666677 13.3333336,5.66666677 L9.12666687,5.66666677 L9.76000022,2.62000004 L9.78000022,2.4066667 C9.78000022,2.13333336 9.66666689,1.88000002 9.48666688,1.70000002 L8.7800002,1 L4.39333343,5.39333343 C4.14666676,5.63333344 4.00000009,5.96666678 4.00000009,6.33333345 L4.00000009,13.0000003 C4.00000009,13.7333336 4.6000001,14.3333336 5.33333345,14.3333336 L11.3333336,14.3333336 C11.8866669,14.3333336 12.3600003,14.0000003 12.5600003,13.5200003 L14.5733337,8.82000018 C14.6333337,8.66666684 14.666667,8.50666684 14.666667,8.3333335 L14.666667,7.00000014 Z"
+                              id="Shape-2"
+                            ></path>
+                          </svg>
+                        </div>
+                        <span>Yorumu Beğen</span><span>(0)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rnr-com-tl-rg">
+                  <div>
+                    <div class="rnr-com-opts-btn"></div>
+                    <div class="rnr-com-opts">
+                      <a class="report-abuse"
+                        ><i class="i-warning-square"></i>Şikayet Et</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <div class="seperator"></div>
+            <article class="rnr-com-w">
+              <div class="rnr-com-cn">
+                <div class="rnr-com-tx">
+                  <span class="rnr-inline-rating"
+                    ><div class="ratings readonly">
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div>
+                      <div class="star-w">
+                        <div class="empty"><div class="star"></div></div>
+                        <div class="full" style="width: 100%; max-width: 100%">
+                          <div class="star"></div>
+                        </div>
+                      </div></div
+                  ></span>
+                  <p>
+                    Babama aldık çok güzel kaliteli bir ürün tam beden
+                    alabilirsiniz
+                  </p>
+                </div>
+              </div>
+              <div class="rnr-com-bt">
+                <div>
+                  <span class="rnr-com-usr"
+                    >M** Z**<span class="pipe">|</span>15 Aralık 2022<span
+                      class="seller-name-desc"
+                      ><span class="pipe">|</span
+                      ><span class="seller-name-info">AVVA</span> satıcısından
+                      alındı.</span
+                    ><span
+                      ><span class="pipe">|</span><span>Beden: XL</span></span
+                    ></span
+                  >
+                </div>
+                <div class="review-like-tooltip">
+                  <div class="review-tooltip">
+                    <div class="tooltip-indicator">
+                      <div class="rnr-com-like">
+                        <div class="thumbs-up">
+                          <svg
+                            width="15px"
+                            height="15px"
+                            viewBox="0 0 15 14"
+                            version="1.1"
+                            stroke="none"
+                            stroke-width="1"
+                          >
+                            <path
+                              d="M-4.54747351e-13,14.3333336 L2.66666673,14.3333336 L2.66666673,6.33333345 L-4.54747351e-13,6.33333345 L-4.54747351e-13,14.3333336 Z M14.666667,7.00000014 C14.666667,6.26666679 14.066667,5.66666677 13.3333336,5.66666677 L9.12666687,5.66666677 L9.76000022,2.62000004 L9.78000022,2.4066667 C9.78000022,2.13333336 9.66666689,1.88000002 9.48666688,1.70000002 L8.7800002,1 L4.39333343,5.39333343 C4.14666676,5.63333344 4.00000009,5.96666678 4.00000009,6.33333345 L4.00000009,13.0000003 C4.00000009,13.7333336 4.6000001,14.3333336 5.33333345,14.3333336 L11.3333336,14.3333336 C11.8866669,14.3333336 12.3600003,14.0000003 12.5600003,13.5200003 L14.5733337,8.82000018 C14.6333337,8.66666684 14.666667,8.50666684 14.666667,8.3333335 L14.666667,7.00000014 Z"
+                              id="Shape-2"
+                            ></path>
+                          </svg>
+                        </div>
+                        <span>Yorumu Beğen</span><span>(0)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rnr-com-tl-rg">
+                  <div>
+                    <div class="rnr-com-opts-btn"></div>
+                    <div class="rnr-com-opts">
+                      <a class="report-abuse"
+                        ><i class="i-warning-square"></i>Şikayet Et</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <div class="seperator"></div>
+          </div>
+          <a
+            href="https://www.trendyol.com/avva/erkek-beyaz-polo-yaka-t-shirt-e001027-p-267639826/yorumlar?boutiqueId=622706&amp;merchantId=968"
+            rel="nofollow"
+            class="pr-rnr-mr-btn gnr-cnt-br"
+            ><span>DAHA FAZLA YORUM GÖSTER</span></a
+          >
+        </div>
+      </div>
+    </article>
+    <div></div>
+    <section
+      component-id="20"
+      class="details-section"
+      data-drroot="product-info"
+    >
+      <h2 class="title">Ürün Bilgileri</h2>
+      <div class="detail-border">
+        <div class="flex-container">
+          <img
+            class="detail-section-img"
+            loading="lazy"
+            [src]="getImageSource(product)"
+          />
+          <div class="info-wrapper">
+            <div class="detail-name-container">
+              <h3 class="detail-name">
+                {{ product.productName }}
+              </h3>
+            </div>
+            <ul class="detail-desc-list">
+              <li>
+                {{ product.description }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-</div>
+</main>

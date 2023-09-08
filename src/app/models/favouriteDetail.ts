@@ -1,13 +1,10 @@
-export interface Product{
+export interface FavouriteDetail{
     productId:number;
     categoryName:string;
     productName:string;
     unitPrice:number;
-    unitsInStock:number;
-    uploadTime:string;
     header:string;
-    description:string;
     imageContentType:string;
     imageData:string;
-    sizes:string;
+    size:string;
 }
