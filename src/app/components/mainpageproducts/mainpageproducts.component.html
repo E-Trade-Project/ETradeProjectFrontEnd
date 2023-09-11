@@ -10,13 +10,32 @@
          <span style="color: #F27A1A; font-style: italic;"> Loading ...</span>
     </div>
     
-    <div class="container" style="display: flex !important; flex-wrap: wrap; flex-direction: row !important;">
+    <div  class="container" style="display: flex !important; flex-wrap: wrap; flex-direction: row !important;">
         <!-- src="../../../assets/BMW_logo_(gray).png" -->
-        <ul class="products" >
-            <li class="product-wrapper"  [routerLink]="['/products',product.categoryName,'product-id',product.productId]" *ngFor="let product of Products">
-                <div class="image-product" >
-                    <img class="img-fluid" [src]="getImageSource(product)" alt="{{product.productName}}">
-                    <span class="heart-symbol">❤️</span>
+        <ul class="products">
+            <li class="product-wrapper" id="product-wrapper" (click)="redirectToProductDetails(product)"   *ngFor="let product of Products;let i = index">
+                <div class="image-product"  >
+                    <img class="img-fluid" [src]="getImageSource(product)" alt={{product.productName}}>
+                    <div class="fvrt-btn-wrppr" >
+                        <span *ngIf="itIsFavourite(product.productId)"
+                        class="fvrt-btn-control"
+                        title="Delete Favourites"
+                        (click)="deleteFavourite(product.productId)"
+                        (mouseenter)="onDeleteFavourites()"
+                        (mouseleave)="leftDeleteFavourites()"
+                        style="display: block;"
+                        >
+                        </span>
+                        <span  *ngIf="!itIsFavourite(product.productId)"
+                        (click)="addFavourite(product.productId)"
+                        class="fvrt-btn"
+                        (mouseenter)="onAddFavourites()"
+                        (mouseleave)="leftAddFavourites()"
+                        id="addFavourites"
+                        title="Add Favourites" style="display: block;">
+                        
+                    </span>
+                    </div>
                     <span class="sold-out"  *ngIf="soldControl" >Sold Out</span>
                     <div class="discount-badge">-20% Discount</div> 
                 </div>

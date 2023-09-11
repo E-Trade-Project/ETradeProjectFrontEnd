@@ -1,4 +1,5 @@
 export interface FavouriteDetail{
+    id:number;
     productId:number;
     categoryName:string;
     productName:string;
@@ -7,4 +8,5 @@ export interface FavouriteDetail{
     imageContentType:string;
     imageData:string;
     size:string;
+    unitsInStock:number;
 }

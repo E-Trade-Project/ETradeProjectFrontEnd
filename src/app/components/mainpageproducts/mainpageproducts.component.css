@@ -46,6 +46,7 @@ img{
     .product-wrapper {
         flex: 0 0 calc(28.33% - 10px); /* 3 ürün yanyana ve kenar boşlukları ile */
         margin: 2%;
+        z-index: 1;
     }
     .product-wrapper:hover{
         cursor: pointer;
@@ -121,8 +122,33 @@ img{
     .spinner-grow{
         width: 5rem; height: 5rem;color:#F27A1A ;margin-left: 4%;margin-top: 15%;
     }
+   
 }
-
+.fvrt-btn-wrppr {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    z-index: 2;
+   
+}.fvrt-btn-wrppr .fvrt-btn {
+    float: left;
+    width: 50px;
+    height: 60px;
+    background: url(https://cdn.dsmcdn.com/web/production/favorite-heart.svg) no-repeat;
+}
+.fvrt-btn-wrppr .fvrt-btn:hover {
+    
+    background: url(https://cdn.dsmcdn.com/web/assets/favorite-heart-hover.svg) no-repeat;
+}
+.fvrt-btn-control{
+    float: left;
+    width: 50px;
+    height: 60px;
+    background: url(https://cdn.dsmcdn.com/web/assets/favorite-heart-hover.svg) no-repeat;
+}.special1{
+    display: block;
+}
 
 
 

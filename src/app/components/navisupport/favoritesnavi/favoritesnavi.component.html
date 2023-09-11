@@ -1,8 +1,8 @@
 <li class="nav-item "style="display: flex; align-items: center;margin-right: 5px;margin-left: 5px;position: relative;"   (mouseenter)="showFavourites()" (mouseleave)="hideFavourites()">
-    <a class="nav-link active" href="#" style="font-size: large;display: flex;align-items: center;">
-      <fa-icon  [icon]="faHeart" style="margin-right: 5px;"></fa-icon>
+    <a class="nav-link active" href="/favourites"style="font-size: large;display: flex;align-items: center;">
+      <fa-icon  [icon]="faHeart" style="margin-right: 5px;" ></fa-icon>
       <span class="textfavorites"> Favorites</span>&nbsp;
-      <span class="badge rounded-pill" style="font-size: 10px;background-color: #F27A1A; position: absolute; bottom:60%; left: 20%;" *ngIf="favouriteCount!='0'">{{favouriteCount}}</span>
+      <span class="badge rounded-pill" style="" *ngIf="favouriteCount!='0'">{{favouriteCount}}</span>
     </a>
     <div class="container favourite"  *ngIf="showFavourite" (mouseenter)="showFavourites()">
        My Favourites({{favouriteCount}} product)
@@ -19,7 +19,7 @@
               <div>
                <b>{{favourite.productName}} </b><small>{{favourite.header}} This Product Is So Awesome For Yours</small> 
               </div> 
-              <span>Size:<small>{{favourite.size}}</small></span>
+              <span></span>
               <div style="text-align: center  ;  align-items: center;">
                 
                 <b style="color: #F27A1A;">{{favourite.unitPrice}} TL</b>
@@ -31,7 +31,7 @@
       </div>
     </div>
       <div class="col-md-12" style="display: flex;align-items: center;justify-content:space-around;">
-        <button type="button" class="btn" style="background-color: #F27A1A;color: white;">View All Favourite</button>
+        <button type="button" class="btn" style="background-color: #F27A1A;color: white;" (click)="getAllFavourites()">View All Favourite</button>
       </div>
     </div>
     

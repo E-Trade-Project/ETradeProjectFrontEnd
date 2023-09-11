@@ -18,6 +18,8 @@ import { CategoriesnaviComponent } from './components/navisupport/categoriesnavi
 import { MainpageproductsComponent } from './components/mainpageproducts/mainpageproducts.component';
 import { ProductdetailComponent } from './components/productdetail/productdetail.component';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+
+import { AllfavouritesComponent } from './components/allfavourites/allfavourites.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
     CategoriesnaviComponent,
     MainpageproductsComponent,
     ProductdetailComponent,
+    AllfavouritesComponent,
   ],
   imports: [
     BrowserModule,

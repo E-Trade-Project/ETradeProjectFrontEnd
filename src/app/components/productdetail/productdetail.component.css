@@ -988,4 +988,14 @@ ul{
         color: #666;
         margin-bottom: 10px;
         word-wrap: break-word;
+    }#FavouriteButton:hover{
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     }
+    #FavouriteButton{
+        transition: box-shadow 0.2s ease-in-out;
+    } 
+    
+    .custom-tooltip {
+        --bs-tooltip-bg: var(--bd-violet-bg);
+        --bs-tooltip-color: var(--bs-white);
+      }

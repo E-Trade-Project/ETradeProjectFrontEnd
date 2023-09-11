@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { FavouriteService } from 'src/app/service/favourite.service';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-favoritesnavi',
   templateUrl: './favoritesnavi.component.html',
@@ -13,7 +14,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 export class FavoritesnaviComponent implements OnInit {
 
   isTooltipVisible: boolean = false;
-  constructor(private toastrService:ToastrService,private favouriteService:FavouriteService) { }
+  constructor(private toastrService:ToastrService,private favouriteService:FavouriteService,private router:Router) { }
   favouriteCount:string;
   ngOnInit(): void {
     this.getFavourites();
@@ -31,7 +32,6 @@ export class FavoritesnaviComponent implements OnInit {
         product.categoryName = product.categoryName.replace(/\s+/g, ''); 
       });
       this.favouriteCount=response.data.length.toString();
-      console.log(response.data[0]);
       
     })
     return this.Favourites;
@@ -49,4 +49,8 @@ export class FavoritesnaviComponent implements OnInit {
     this.showFavourite=false
   }
   faTrash=faTrash;
+  getAllFavourites(){
+      const url = `/favourites`;
+      this.router.navigate([url]);
+  }
 }
